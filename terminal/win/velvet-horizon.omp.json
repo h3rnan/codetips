@@ -1,0 +1,170 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "blush": "#DA627D",
+    "plum": "#9A348E",
+    "purp": "#6e3999",
+    "salmon": "#FCA17D",
+    "sky": "#86BBD8",
+    "tan": "#CC3802",
+    "teal": "#047E84",
+    "teal_blue": "#33658A",
+    "white": "#FFFFFF",
+    "aws_orange": "#FF9900",
+    "azure_blue": "#0078D4",
+    "gcp_blue": "#4285F4"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "time",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "p:white",
+          "background": "p:purp",
+          "template": "\udb82\udd96 {{ .CurrentDate | date .Format }} ",
+          "properties": {
+            "time_format": "15:04:05"
+          }
+        },
+        {
+          "type": "os",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "p:white",
+          "background": "p:plum",
+          "template": " {{ if .WSL }}WSL {{ end }}{{ .Icon }}  "
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "p:white",
+          "background": "p:blush",
+          "template": " \ue5fe \u001b]8;;file://{{ .AbsolutePWD }}\u001b\\{{ .Path }}\u001b]8;;\u001b\\ ",
+          "properties": {
+            "style": "folder"
+          }
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "p:white",
+          "background": "p:salmon",
+          "template": " ➜ {{ .UpstreamIcon }}{{ .HEAD }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "properties": {
+            "fetch_status": true,
+            "fetch_upstream_icon": true,
+            "fetch_stash_count": true
+          }
+        },
+        {
+          "type": "node",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "p:white",
+          "background": "p:sky",
+          "template": " \ue718 {{ .Full }} "
+        },
+        {
+          "type": "java",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "p:white",
+          "background": "p:sky",
+          "template": " \ue738 {{ .Full }} "
+        },
+        {
+          "type": "executiontime",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "p:white",
+          "background": "p:teal_blue",
+          "template": " \ueba2 {{ .FormattedMs }} ",
+          "properties": {
+            "threshold": 500
+          }
+        },
+        {
+          "type": "status",
+          "style": "diamond",
+          "trailing_diamond": "\ue0b0",
+          "foreground": "p:white",
+          "background": "p:teal",
+          "background_templates": [
+            "{{ if gt .Code 0 }}p:tan{{ end }}"
+          ],
+          "template": " {{ if gt .Code 0 }}\uf00d{{ else }}\uf00c{{ end }} ",
+          "properties": {
+            "always_enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "shell",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b0",
+          "foreground": "p:white",
+          "background": "p:purp",
+          "template": "\udb80\udd8d {{ .Name }}❯"
+        }
+      ]
+    }
+  ],
+  "tooltips": [
+    {
+      "type": "aws",
+      "tips": [
+        "aws"
+      ],
+      "style": "diamond",
+      "leading_diamond": "\ue0b6",
+      "trailing_diamond": "\ue0b0",
+      "foreground": "p:white",
+      "background": "p:aws_orange",
+      "template": " \ue7ad {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} "
+    },
+    {
+      "type": "az",
+      "tips": [
+        "az"
+      ],
+      "style": "diamond",
+      "leading_diamond": "\ue0b6",
+      "trailing_diamond": "\ue0b0",
+      "foreground": "p:white",
+      "background": "p:azure_blue",
+      "template": " \ufd03 {{ .Name }} "
+    },
+    {
+      "type": "gcp",
+      "tips": [
+        "gcloud"
+      ],
+      "style": "diamond",
+      "leading_diamond": "\ue0b6",
+      "trailing_diamond": "\ue0b0",
+      "foreground": "p:white",
+      "background": "p:gcp_blue",
+      "template": " \ufbaf {{ .Project }} "
+    }
+  ],
+  "transient_prompt": {
+    "background": "transparent",
+    "template": "<p:purp,transparent>\ue0b6</><p:white,p:purp>\udb80\udd8d {{ .Shell }}</><p:purp,p:blush>\ue0b0</><p:white,p:blush> \uf07b \u001b]8;;file://{{ .AbsolutePWD }}\u001b\\{{ .Folder }}\u001b]8;;\u001b\\ </><p:blush,transparent>\ue0b0</> <p:plum,transparent>\uf0e7</> "
+  },
+  "version": 4,
+  "final_space": true
+}

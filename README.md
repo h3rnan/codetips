@@ -1,2 +1,3 @@
 # codetips
-A compendium of instructions, functions and tools that facilitate daily work.
+
+Un compendio de instrucciones, funciones y herramientas que facilitan el trabajo diario.
