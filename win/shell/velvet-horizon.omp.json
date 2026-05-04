@@ -56,11 +56,15 @@
           "powerline_symbol": "\ue0b0",
           "foreground": "p:white",
           "background": "p:salmon",
-          "template": " ➜ {{ .UpstreamIcon }}{{ .HEAD }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "background_templates": [
+            "{{ if or (.Merge) (.Rebase) }}p:tan{{ end }}"
+          ],
+          "template": " ➜ {{ .UpstreamIcon }}{{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
           "properties": {
             "fetch_status": true,
             "fetch_upstream_icon": true,
-            "fetch_stash_count": true
+            "fetch_stash_count": true,
+            "branch_max_length": 25
           }
         },
         {

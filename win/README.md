@@ -53,3 +53,5 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 ``` shell
 scoop install mise
 ```
+> [!Note]
+> Realizar la instalacion de mise para la gestion de versiones de herramientas.
