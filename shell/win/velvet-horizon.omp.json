@@ -118,7 +118,7 @@
           "trailing_diamond": "\ue0b0",
           "foreground": "p:white",
           "background": "p:purp",
-          "template": "\udb80\udd8d {{ .Name }}❯"
+          "template": "\udb80\udd8d {{ .Name }}"
         }
       ]
     }
@@ -163,7 +163,7 @@
   ],
   "transient_prompt": {
     "background": "transparent",
-    "template": "<p:purp,transparent>\ue0b6</><p:white,p:purp>\udb80\udd8d {{ .Shell }}</><p:purp,p:blush>\ue0b0</><p:white,p:blush> \uf07b \u001b]8;;file://{{ .AbsolutePWD }}\u001b\\{{ .Folder }}\u001b]8;;\u001b\\ </><p:blush,transparent>\ue0b0</> <p:plum,transparent>\uf0e7</> "
+    "template": "<p:purp,transparent>\ue0b6</><p:white,p:purp>\udb80\udd8d {{ .Shell }}</><p:purp,p:blush>\ue0b0</><p:white,p:blush> \uf07b \u001b]8;;file://{{ .AbsolutePWD }}\u001b\\{{ .Folder }}\u001b]8;;\u001b\\ </><p:blush,transparent>\ue0b0</> "
   },
   "version": 4,
   "final_space": true
