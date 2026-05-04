@@ -48,3 +48,8 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 ## GCP
 - [GCP CLI](https://cloud.google.com/sdk/gcloud): Cliente GCP.
+
+## Instalacion de mise
+``` shell
+scoop install mise
+```
