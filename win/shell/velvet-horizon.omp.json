@@ -41,11 +41,12 @@
         },
         {
           "type": "path",
+          "alias": "main_path",
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
           "foreground": "p:white",
           "background": "p:blush",
-          "template": " \ue5fe \u001b]8;;file://{{ .AbsolutePWD }}\u001b\\{{ .Path }}\u001b]8;;\u001b\\ ",
+          "template": " \ue5fe {{ path .Path .Location }} ",
           "properties": {
             "style": "folder"
           }
@@ -82,6 +83,17 @@
           "foreground": "p:white",
           "background": "p:sky",
           "template": " \ue738 {{ .Full }} "
+        },
+        {
+          "type": "python",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "p:white",
+          "background": "p:sky",
+          "template": " \ue606 {{ if .Venv }}({{ .Venv }}) {{ end }}{{ .Full }} ",
+          "properties": {
+            "display_virtual_env": true
+          }
         },
         {
           "type": "executiontime",
@@ -167,7 +179,7 @@
   ],
   "transient_prompt": {
     "background": "transparent",
-    "template": "<p:purp,transparent>\ue0b6</><p:white,p:purp>\udb80\udd8d {{ .Shell }}</><p:purp,p:blush>\ue0b0</><p:white,p:blush> \uf07b \u001b]8;;file://{{ .AbsolutePWD }}\u001b\\{{ .Folder }}\u001b]8;;\u001b\\ </><p:blush,transparent>\ue0b0</> "
+    "template": "<p:purp,transparent>\ue0b6</><p:white,p:purp>\udb80\udd8d {{ .Shell }}</><p:purp,p:blush>\ue0b0</><p:white,p:blush>{{ .Segments.main_path.Text }}</><p:blush,transparent>\ue0b0</> "
   },
   "version": 4,
   "final_space": true
